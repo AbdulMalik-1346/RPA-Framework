@@ -8,16 +8,11 @@ import shutil
 from datetime import datetime, timedelta
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
-
 import selenium.webdriver
 from SeleniumLibrary import SeleniumLibrary
-
 from Oracle import Oracle
 
-
 # lib = SeleniumLibrary()
-# lib.get_window_handles()
-
 
 class Actions:
 
