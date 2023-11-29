@@ -10,7 +10,10 @@ from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 import selenium.webdriver
 from SeleniumLibrary import SeleniumLibrary
+from selenium.webdriver.support.wait import WebDriverWait
+
 from Oracle import Oracle
+
 
 # lib = SeleniumLibrary()
 
@@ -449,6 +452,7 @@ class Actions:
     """
         Table filter according to value in front end
     """
+
     def table_filter(self, oracle, input_parameter, input_data, selector, action, application_name, applications_df, locators_df):
         found = False
         params = input_parameter.split('>')
@@ -512,11 +516,37 @@ class Actions:
         self.lib.wait_until_element_is_visible('//span[text()="The Python Language Reference"]/parent::a', timeout=30)
         link_url1 = self.lib.get_element_attribute('//span[text()="The Python Language Reference"]/parent::a', 'href')
         link_url = 'https://robotframework.org/SeleniumLibrary/SeleniumLibrary.html'
+        self.lib.execute_javascript(f"window.open('{link_url1}', '');")
+        self.lib.execute_javascript(f"window.open('{link_url1}', '');")
+        self.lib.execute_javascript(f"window.open('{link_url1}', '');")
+        self.lib.execute_javascript(f"window.open('{link_url1}', '');")
+        self.lib.execute_javascript(f"window.open('{link_url1}', '');")
+        self.lib.execute_javascript(f"window.open('{link_url1}', '');")
+        self.lib.execute_javascript(f"window.open('{link_url1}', '');")
+        self.lib.execute_javascript(f"window.open('{link_url1}', '');")
         self.lib.execute_javascript(f"window.open('{link_url}', '');")
         self.lib.execute_javascript(f"window.open('{link_url1}', '');")
-        locator = "//h2[contains(text(), 'Introduction')]"
-        self.lib.switch_window(locator=locator, timeout=20)
-        time.sleep(10)
+        start = time.perf_counter()
+        wait = WebDriverWait(self.lib.driver, 120)
+
+        def page_loaded(driver):
+            return driver.execute_script("return document.readyState") == "complete"
+
+        handles = self.lib.get_window_handles()
+        for handel in handles:
+            self.lib.switch_window(handel)
+            wait.until(lambda driver: page_loaded(driver))
+            title = self.lib.get_title()
+            print(f'Title Tab 1 ----> {title}')
+            if 'Selenium' in title:
+                print(f'Tab with Title found...!')
+                break
+
+        end = time.perf_counter()
+        print(f'Time:  {end-start}')
+        time.sleep(5)
+        original_tab_handle = handles[0]
+        self.lib.switch_window(original_tab_handle)
 
 
 class Generic:
