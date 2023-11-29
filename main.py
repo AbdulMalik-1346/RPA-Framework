@@ -47,7 +47,7 @@ if __name__ == '__main__':
     # url1 = 'https://docs.python.org/3/library/'
     # lib = SeleniumLibrary()
     # lib.open_browser(url1, application)
-    # lib.maximize_browser_window()
+    # lib.maximize_browser_windowm()
     # action = Actions(lib)
     # action.switch_between_tabs()
 
