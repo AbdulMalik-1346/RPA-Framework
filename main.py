@@ -11,27 +11,27 @@ if __name__ == '__main__':
     password = 'n6%Kx^h3'
     application = 'chrome'
 
-    # db = Oc()
-    # application_df = db.get_application_df()
-    # locators_df = db.get_locators_df()
-    # db_conn = db.get_connection()
-    # # print(application_df)
-    # # print(locators_df)
-    #
-    # bot = Oracle()
-    # grnc = Generic(bot.get_lib())
-    # bot.login(url + ">" + user_id + ">" + password, application)
-    # grnc.wait(5)
-    # grnc.navigation("Payables>Invoices")
-    # action = Actions(bot.get_lib())
-    # # input_parameter = 'Create Order'
-    # # action.open_task(input_parameter)
-    # lib = bot.get_lib()
-    # lib.wait_until_element_is_visible('//span[text()="18"]', timeout=30)
-    # lib.click_element('//span[text()="18"]')
-    # # selector = '//button[contains(text(),"code_var0")]'
-    # selector = '//div[@title="Query By Example"]//a;//span[text()="Invoice Number"]/ancestor::tr[1]/preceding-sibling::tr[1]/td[1]/span/input'
-    # input_parameter = 'Query By Example>Accounting Period'
+    db = Oc()
+    application_df = db.get_application_df()
+    locators_df = db.get_locators_df()
+    db_conn = db.get_connection()
+    # print(application_df)
+    # print(locators_df)
+
+    bot = Oracle()
+    grnc = Generic(bot.get_lib())
+    bot.login(url + ">" + user_id + ">" + password, application)
+    grnc.wait(5)
+    grnc.navigation("Payables>Invoices")
+    action = Actions(bot.get_lib())
+    # input_parameter = 'Create Order'
+    # action.open_task(input_parameter)
+    lib = bot.get_lib()
+    lib.wait_until_element_is_visible('//span[text()="18"]', timeout=30)
+    lib.click_element('//span[text()="18"]')
+    # selector = '//button[contains(text(),"code_var0")]'
+    selector = '//div[@title="Query By Example"]//a;//span[text()="Invoice Number"]/ancestor::tr[1]/preceding-sibling::tr[1]/td[1]/span/input'
+    input_parameter = 'Query By Example>Accounting Period'
 
     # action.click_button(db, input_parameter=input_parameter, selector=selector, action='Click Button', application_name='Chrome', applications_df=application_df, locators_df=locators_df)
     # action.click_image(db, input_parameter=input_parameter, selector=selector, action='Click Image', application_name='Chrome', applications_df=application_df, locators_df=locators_df)
@@ -42,17 +42,17 @@ if __name__ == '__main__':
     # action.click_dropdown(db, input_parameter=input_parameter, selector=selector, action='Button Dropdown', application_name='Chrome', applications_df=application_df, locators_df=locators_df)
     # action.scroll_to_element(db, input_parameter=input_parameter, selector=selector)
     # action.radio_button(db, input_parameter=input_parameter, selector=selector, action='Radio Button', application_name='Chrome', applications_df=application_df, locators_df=locators_df)
-    # action.table_filter(db, input_parameter=input_parameter, input_data='09-23', selector=selector, action='Table Filter', application_name='Chrome', applications_df=application_df, locators_df=locators_df)
+    action.table_filter(db, input_parameter=input_parameter, input_data='09-23', selector=selector, action='Table Filter', application_name='Chrome', applications_df=application_df, locators_df=locators_df)
 
-    url1 = 'https://docs.python.org/3/library/'
-    lib = SeleniumLibrary()
-    lib.open_browser(url1, application)
-    lib.maximize_browser_window()
-    action = Actions(lib)
-    action.switch_between_tabs()
+    # url1 = 'https://docs.python.org/3/library/'
+    # lib = SeleniumLibrary()
+    # lib.open_browser(url1, application)
+    # lib.maximize_browser_window()
+    # action = Actions(lib)
+    # action.switch_between_tabs()
 
-    # grnc.wait(10)
-    # bot.close_browser()
+    grnc.wait(30)
+    bot.close_browser()
 
     # dict = {}
     # db.get_value("Select * from ABDUL_TEMP", 100, dict)
