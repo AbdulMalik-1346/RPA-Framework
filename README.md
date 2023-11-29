@@ -2,4 +2,6 @@
 
 This framework have been developed in SeleniumLibrary() framework in python.
 
-This have more feature....
+_This project can be installed on any machine you need to install python to run this._
+
+**Thank You**
