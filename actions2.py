@@ -14,7 +14,7 @@ class Oracle:
     def login(self, input_parameter, application):
         lib = Oracle.lib
         param_arr = input_parameter.split('>')
-        lib.open_browser(param_arr[0], application)
+        lib.open_browser(url=param_arr[0], browser=application)
         lib.maximize_browser_window()
         lib.input_text('xpath://input[@placeholder=\'User ID\']', param_arr[1])
         lib.input_text('xpath://input[@placeholder=\'Password\']', param_arr[2])
